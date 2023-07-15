@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { ShoppingCartContext } from '../../Context';
 import { NavLink } from 'react-router-dom'
+import OrdersIcon from '../../icons/OrdersIcon';
 
 const Navbar = () => {
     const context = useContext(ShoppingCartContext)
@@ -84,11 +85,11 @@ const Navbar = () => {
                     isActive ? activeStyle : ""}>              
                     SingIn
                     </NavLink></li>
-                    <li>
-                    <NavLink
-                    >              
-                    🛒{context.count}
-                    </NavLink></li>
+                    <li className='flex'>
+                                                          
+                    <OrdersIcon />
+                    <div>{context.count}</div>
+                    </li>
                 </ul>
               </nav>
     )

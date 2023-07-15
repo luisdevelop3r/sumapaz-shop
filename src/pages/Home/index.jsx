@@ -1,9 +1,12 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import { ShoppingCartContext } from '../../Context';
 import Layout from '../../components/Layout'
 import Card from '../../components/Card'
+import ProductDetail from '../../components/ProductDetail'
 
 function Home() {
   const [items, setItems] = useState(null)
+  const context = useContext(ShoppingCartContext)
 
   useEffect(() => {
     fetch('https://api.escuelajs.co/api/v1/products')
@@ -11,7 +14,6 @@ function Home() {
     .then(data => setItems(data))
     
   }, [])
-  console.log(items);
     return (
         <Layout>
          Home
@@ -22,7 +24,9 @@ function Home() {
           ))
          }
          </div>
-        
+                 
+         <ProductDetail></ProductDetail>
+
          </Layout>
     )
   }
