@@ -7,15 +7,23 @@ import MyOrders from '../MyOrders';
 import SingIn from '../SingIn';
 import NotFound from '../NotFound';
 import Navbar from '../../components/Navbar'
+import CheckoutMenu from '../../components/CheckoutMenu';
 
 import './App.css'
 
 const AppRoutes = () => {
   let routes = useRoutes([
     { path: '/', element: <Home /> },
+    { path: '/clothes', element: <Home /> },
+    { path: '/electronics', element: <Home /> },
+    { path: '/furnitures', element: <Home /> },
+    { path: '/toys', element: <Home /> },
+    { path: '/others', element: <Home /> },
     { path: '/MyAccount', element: <MyAccount /> },
     { path: '/MyOrder', element: <MyOrder /> },
     { path: '/MyOrders', element: <MyOrders /> },
+    { path: '/MyOrders/last', element: <MyOrder /> },
+    { path: '/MyOrders/:id', element: <MyOrder /> },
     { path: '/SingIn', element: <SingIn /> },
     { path: '/*', element: <NotFound /> },
   ])
@@ -29,6 +37,7 @@ const App = () => {
       <BrowserRouter>
         <Navbar />
         <AppRoutes />
+        <CheckoutMenu />
       </BrowserRouter>
     </ShoppingCartProvider>
   )
